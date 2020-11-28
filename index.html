@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=">
+  <title>Clock</title>
+  <style>
+      body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "American Typewriter";
+      background-color: #47a3d8;
+    }
+    #clock {
+      height: 10vh;
+      width: 100%;
+      background-color: #47a3d8;
+      color: white;
+      display: flex;
+      align-items: top; 
+      align-content: right;
+      font-size: 30px;
+    }
+    p {
+        color:white;
+        font-size: 30px;
+        text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="clock">
+  </div>
+  <script>
+      function clock() {
+      let date = new Date();
+      let hrs = date.getHours();
+      let mins = date.getMinutes();
+      let secs = date.getSeconds();
+      let period = "AM";
+    
+      if (hrs == 0) hrs = 12;
+      if (hrs > 12) {
+        hrs = hrs - 12;
+        period = "PM";
+      }
+    
+      hrs = hrs < 10 ? `0${hrs}` : hrs;
+      mins = mins < 10 ? `0${mins}` : mins;
+      secs = secs < 10 ? `0${secs}` : secs;
+    
+      let time = `${hrs}:${mins}:${secs} ${period}`;
+      setInterval(clock, 1000);
+      document.getElementById("clock").innerText = time;
+    }
+    
+    clock();
+    
+  </script>
+  <div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'Fun Facts About Us')">Fun Facts About Us</button>
+    <button class="tablinks" onclick="openCity(event, 'Learning & Deveolpment')">Learning & Deveolpment</button>
+    <button class="tablinks" onclick="openCity(event, 'Internships')">Internships</button>
+  </div>
+  <p>Year Up: LCJ</p>
+  <p><img src="lcj.jpg" height=600 class="aligncenter">
+</p>
+
+</body>
+
+</html>
